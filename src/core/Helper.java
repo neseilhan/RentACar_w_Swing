@@ -21,13 +21,24 @@ public class Helper {
         String msg;
         String title;
         switch (str) {
-            case "fill":
+            case "fill" -> {
                 msg = "Lutfen tum alanlari doldurunuz.";
                 title = "HATA";
-                break;
-            default:
+            }
+            case "done" -> {
+                msg = "Islem basarili.";
+                title = "Sonuc";
+            }
+            case "notFound" -> {
+                msg = str + "bulunamadi.";
+                title = "Bulunamadi";
+            }
+
+            default -> {
                 msg = str;
                 title = "Mesaj";
+            }
+
         }
         JOptionPane.showMessageDialog(null,str,"HATA", JOptionPane.INFORMATION_MESSAGE);
     }
