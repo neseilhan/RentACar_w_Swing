@@ -3,10 +3,7 @@ package dao;
 import core.Db;
 import entity.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class UserDao {
@@ -29,7 +26,9 @@ public class UserDao {
     }
     public User findByLogin(String username, String password){
         User obj = null;
-        String query = "SELECT * FROM public.user WHERE user_name ? AND user_pass = ?"; //'public.user' is for psql.
+        String query = "SELECT * FROM public.user WHERE user_name=? AND user_pass = ?"; //'public.user' is for psql.
+        //insert into public."user"(user_id,user_name,user_pass,user_role) values (1,'admin','asd','admin')
+        //ilk veri
         try {
             PreparedStatement pr = this.con.prepareStatement(query);
             pr.setString(1, username);
@@ -45,6 +44,7 @@ public class UserDao {
     }
     public User match(ResultSet rs) throws SQLException{
         User obj = new User();
+
         obj.setId(rs.getInt("user_id"));
         obj.setUsername(rs.getString("user_name"));
         obj.setPassword(rs.getString("user_pass"));

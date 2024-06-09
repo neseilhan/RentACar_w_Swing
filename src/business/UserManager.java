@@ -5,6 +5,7 @@ import entity.User;
 
 public class UserManager {
     private final UserDao userDao;
+
     public UserManager(){
         this.userDao = new UserDao();
     }

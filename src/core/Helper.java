@@ -30,7 +30,7 @@ public class Helper {
                 title = "Sonuc";
             }
             case "notFound" -> {
-                msg = str + "bulunamadi.";
+                msg = "Kayit bulunamadi.";
                 title = "Bulunamadi";
             }
 
@@ -40,7 +40,7 @@ public class Helper {
             }
 
         }
-        JOptionPane.showMessageDialog(null,str,"HATA", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,msg,title, JOptionPane.INFORMATION_MESSAGE);
     }
     public static boolean isFieldEmpty(JTextField field){
         return field.getText().trim().isEmpty(); // if its empty return true.
