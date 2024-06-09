@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/core/Db.java" afterDir="false" />
+    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="DB class created and db connected via App class.">
+      <change afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/LoginView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/LoginView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +57,8 @@
     "last_opened_file_path": "D:/IdeaProjects/RentACar/postgresql-42.7.3.jar",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editing.templates"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -85,6 +89,19 @@
       <option name="presentableId" value="Default" />
       <updated>1717940937216</updated>
     </task>
+    <task id="LOCAL-00001" summary="DB class created and db connected via App class.">
+      <option name="closed" value="true" />
+      <created>1717945738931</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717945738931</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="DB class created and db connected via App class." />
+    <option name="LAST_COMMIT_MESSAGE" value="DB class created and db connected via App class." />
   </component>
 </project>

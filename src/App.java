@@ -1,12 +1,11 @@
-import core.Db;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import core.Helper;
+import view.LoginView;
 
 public class App {
     public static void main(String[] args) {
 
-        Connection con = Db.getInstance();
+        Helper.setTheme(); //calling the theme.
+        LoginView loginView = new LoginView();
+
     }
 }
