@@ -32,7 +32,7 @@ public class LoginView extends JFrame{
         btn_login.addActionListener(e -> {
             JTextField[] checkFieldList = {this.fld_username, this.fld_pass};
             if(Helper.isFieldListEmpty(checkFieldList)){
-                Helper.showMsg("fill");
+                Helper.showMsg("Lutfen bos alanlari doldurunuz.");
             }
 
         });

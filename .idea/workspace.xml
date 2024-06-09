@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="editing login panel and Nimbus theme added.">
+    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="isFieldEmpty,isFieldListEmpty and getLocationPoint methods created in Helper">
+      <change afterPath="$PROJECT_DIR$/src/business/UserManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LoginView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,12 +105,21 @@
       <option name="project" value="LOCAL" />
       <updated>1717948462107</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="isFieldEmpty,isFieldListEmpty and getLocationPoint methods created in Helper">
+      <option name="closed" value="true" />
+      <created>1717951268210</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717951268210</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="DB class created and db connected via App class." />
     <MESSAGE value="editing login panel and Nimbus theme added." />
-    <option name="LAST_COMMIT_MESSAGE" value="editing login panel and Nimbus theme added." />
+    <MESSAGE value="isFieldEmpty,isFieldListEmpty and getLocationPoint methods created in Helper" />
+    <option name="LAST_COMMIT_MESSAGE" value="isFieldEmpty,isFieldListEmpty and getLocationPoint methods created in Helper" />
   </component>
 </project>
