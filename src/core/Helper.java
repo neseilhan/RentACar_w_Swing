@@ -33,7 +33,10 @@ public class Helper {
                 msg = "Kayit bulunamadi.";
                 title = "Bulunamadi";
             }
-
+            case "error" -> {
+                msg = "Hatali islem";
+                title = "HATA";
+            }
             default -> {
                 msg = str;
                 title = "Mesaj";

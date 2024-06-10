@@ -13,6 +13,10 @@ public class Brand {
         this.name = name;
     }
 
+    public Brand(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

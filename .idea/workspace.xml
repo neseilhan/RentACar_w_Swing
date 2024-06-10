@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="Layout class extended from JFrame and used on Views.">
-      <change afterPath="$PROJECT_DIR$/src/business/BrandManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/BrandDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Brand.java" afterDir="false" />
+    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="popup feautures for brand, added to AdminView.">
+      <change afterPath="$PROJECT_DIR$/src/view/BrandView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/BrandView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/business/BrandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/business/BrandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/BrandDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BrandDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Brand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Layout.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718025345058</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="popup feautures for brand, added to AdminView.">
+      <option name="closed" value="true" />
+      <created>1718037218459</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718037218459</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -159,6 +169,7 @@
     <MESSAGE value="login operations done." />
     <MESSAGE value="syntax fixed." />
     <MESSAGE value="Layout class extended from JFrame and used on Views." />
-    <option name="LAST_COMMIT_MESSAGE" value="Layout class extended from JFrame and used on Views." />
+    <MESSAGE value="popup feautures for brand, added to AdminView." />
+    <option name="LAST_COMMIT_MESSAGE" value="popup feautures for brand, added to AdminView." />
   </component>
 </project>
