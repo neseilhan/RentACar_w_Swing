@@ -39,7 +39,9 @@ public class LoginView extends Layout{ //extended from Layout to use the guiInit
                     Helper.showMsg("notFound");
                 }
                 else{
-                    System.out.println(loginUser.toString());
+//                    System.out.println(loginUser.toString());
+                    AdminView adminView = new AdminView(loginUser);
+                    dispose();
                 }
             }
 
