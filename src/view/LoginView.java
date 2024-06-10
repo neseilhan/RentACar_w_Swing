@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginView extends JFrame{
+public class LoginView extends Layout{ //extended from Layout to use the guiInitialize().
     private JPanel container;
     private JPanel w_top;
     private JLabel lbl_welcome;
@@ -22,14 +22,11 @@ public class LoginView extends JFrame{
     private final UserManager userManager;
 
     public LoginView(){ //loginView constructor.
-        this.userManager = new UserManager();
 
+        this.userManager = new UserManager();
         this.add(container);
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setTitle("Rent a Car");
-        this.setSize(400,400); // setting size and title of the container.
-        this.setLocation(Helper.getLocationPoint("x", this.getSize()),Helper.getLocationPoint("y", this.getSize())); // container centered.
-        this.setVisible(true);
+        this.guiInitialize(400,400);
+
 
         btn_login.addActionListener(e -> {
             JTextField[] checkFieldList = {this.fld_username, this.fld_pass};
