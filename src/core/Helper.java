@@ -46,7 +46,7 @@ public class Helper {
         }
         JOptionPane.showMessageDialog(null,msg,title, JOptionPane.INFORMATION_MESSAGE);
     }
-    public static boolean confirm(String str){
+    public static boolean confirm(String str){ //Confirm operation for deleting.
         optionPaneTR();
         String msg;
         if(str.equals("sure")){
@@ -76,7 +76,7 @@ public class Helper {
             default -> 0;
         };
     }
-    public static void optionPaneTR(){
+    public static void optionPaneTR(){ //translation of OptionPane
         UIManager.put("OptionPane.okButtonText","Tamam");
         UIManager.put("OptionPane.yesButtonText","Evet");
         UIManager.put("OptionPane.noButtonText","Hayir");

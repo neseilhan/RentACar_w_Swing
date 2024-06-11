@@ -13,7 +13,7 @@ public class BrandManager {
         this.brandDao = new BrandDao();
     }
     public ArrayList<Object[]> getForTable(int size){
-        ArrayList<Object[]> brandRowList = new ArrayList<>(); // kolon sayisi kadar obje olustur.
+        ArrayList<Object[]> brandRowList = new ArrayList<>(); //Creating as many objects as the number of columns.
         for(Brand brand : this.findAll()){
             Object[] rowObject = new Object[size];
             int i = 0;

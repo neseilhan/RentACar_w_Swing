@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="BrandView created and createTable, loadBrandTable methods created.">
-      <change afterPath="$PROJECT_DIR$/src/business/ModelManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/ModelDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/ModelView.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/ModelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/business/BrandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/business/BrandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/BrandDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BrandDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Layout.java" afterDir="false" />
-    </list>
+    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="Model,ModelDao,ModelManager and ModelView created." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,7 +155,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718055083061</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="delete option of Brand done and confirm msg added.">
+      <option name="closed" value="true" />
+      <created>1718141364749</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718141364749</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Model,ModelDao,ModelManager and ModelView created.">
+      <option name="closed" value="true" />
+      <created>1718141511129</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1718141511129</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -180,6 +184,8 @@
     <MESSAGE value="Layout class extended from JFrame and used on Views." />
     <MESSAGE value="popup feautures for brand, added to AdminView." />
     <MESSAGE value="BrandView created and createTable, loadBrandTable methods created." />
-    <option name="LAST_COMMIT_MESSAGE" value="BrandView created and createTable, loadBrandTable methods created." />
+    <MESSAGE value="delete option of Brand done and confirm msg added." />
+    <MESSAGE value="Model,ModelDao,ModelManager and ModelView created." />
+    <option name="LAST_COMMIT_MESSAGE" value="Model,ModelDao,ModelManager and ModelView created." />
   </component>
 </project>
