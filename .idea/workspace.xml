@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="popup feautures for brand, added to AdminView.">
-      <change afterPath="$PROJECT_DIR$/src/view/BrandView.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/BrandView.java" afterDir="false" />
+    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="BrandView created and createTable, loadBrandTable methods created.">
+      <change afterPath="$PROJECT_DIR$/src/business/ModelManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/ModelDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/ModelView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/ModelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/business/BrandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/business/BrandManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/BrandDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BrandDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Brand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Layout.java" afterDir="false" />
     </list>
@@ -52,20 +53,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IdeaProjects/RentACar/postgresql-42.7.3.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "editing.templates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/RentACar/postgresql-42.7.3.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\RentACar" />
@@ -158,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718037218459</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="BrandView created and createTable, loadBrandTable methods created.">
+      <option name="closed" value="true" />
+      <created>1718055083061</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718055083061</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -170,6 +179,7 @@
     <MESSAGE value="syntax fixed." />
     <MESSAGE value="Layout class extended from JFrame and used on Views." />
     <MESSAGE value="popup feautures for brand, added to AdminView." />
-    <option name="LAST_COMMIT_MESSAGE" value="popup feautures for brand, added to AdminView." />
+    <MESSAGE value="BrandView created and createTable, loadBrandTable methods created." />
+    <option name="LAST_COMMIT_MESSAGE" value="BrandView created and createTable, loadBrandTable methods created." />
   </component>
 </project>

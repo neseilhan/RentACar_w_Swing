@@ -42,4 +42,11 @@ public class BrandManager {
         }
         return this.brandDao.update(brand);
     }
+    public boolean delete(int id){
+        if(this.getById(id) == null){
+            Helper.showMsg(id +"ID kayitli marka bulunamadi.");
+            return false;
+        }
+        return this.brandDao.delete(id);
+    }
 }
