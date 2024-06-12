@@ -1,6 +1,7 @@
 package view;
 
 import business.BrandManager;
+import business.ModelManager;
 import core.Helper;
 import entity.*;
 
@@ -22,12 +23,19 @@ public class AdminView extends Layout {
     private JPanel pnl_brand;
     private JScrollPane scrl_brand;
     private JTable tbl_brand;
+    private JPanel pnl_model;
+    private JScrollPane scrl_model;
+    private JTable tbl_model;
     private DefaultTableModel tmdl_brand = new DefaultTableModel();
+    private DefaultTableModel tmdl_model = new DefaultTableModel();
     private BrandManager brandManager;
+    private ModelManager modelManager;
     private JPopupMenu brandMenu;
+    private JPopupMenu modelMenu;
 
     public AdminView(User user) {
 
+        this.modelManager = new ModelManager();
         this.brandManager = new BrandManager();
         this.add(container);
         this.guiInitialize(800, 500);
@@ -38,18 +46,57 @@ public class AdminView extends Layout {
         this.lbl_welcome.setText("Hosgeldiniz " + this.user.getUsername());
         loadBrandTable();
         loadBrandComponent();
-
-        this.tbl_brand.setComponentPopupMenu(brandMenu);
+        loadModelTable();
+        loadModelComponent();
 
     }
-    public void loadBrandComponent(){
-            this.tbl_brand.addMouseListener(new MouseAdapter(){
-            @Override
-            public void mousePressed(MouseEvent e) {
-                int selected_row = tbl_brand.rowAtPoint(e.getPoint());
-                tbl_brand.setRowSelectionInterval(selected_row, selected_row);
-            }
+    public void loadModelComponent(){
+        tableRowSelect(this.tbl_model);
+        this.modelMenu = new JPopupMenu();
+        this.modelMenu.add("Yeni").addActionListener(e ->{
+            ModelView modelView = new ModelView(new Model());
+            modelView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadModelTable();
+                }
             });
+        });
+
+        this.modelMenu.add("Guncelle").addActionListener(e ->{
+
+            int selectModelId = this.getTableSelectedRow(tbl_model, 0);
+            ModelView modelView = new ModelView(this.modelManager.getById(selectModelId));
+
+            modelView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadModelTable();
+                }
+            });
+        });
+
+        this.modelMenu.add("Sil").addActionListener(e -> {
+            if (Helper.confirm("sure")) {
+                int selectedModelId = this.getTableSelectedRow(tbl_model, 0);
+                if (this.modelManager.delete(selectedModelId)) {
+                    Helper.showMsg("done");
+                    loadModelTable();
+                } else {
+                    Helper.showMsg("error");
+                }
+            }
+        });
+        this.tbl_model.setComponentPopupMenu(modelMenu);
+
+    }
+    public void loadModelTable(){
+        Object[] col_model = {"Model ID","Marka","Model Adi","Tip", "Yil", "Yakit Tipi", "Vites"};
+        ArrayList<Object[]> modelList = this.modelManager.getForTable(col_model.length, this.modelManager.findAll());
+        createTable(this.tmdl_model, this.tbl_model, col_model,modelList);
+    }
+    public void loadBrandComponent(){
+            tableRowSelect(this.tbl_brand);
             this.brandMenu = new JPopupMenu();
             this.brandMenu.add("Yeni").addActionListener(e ->{
                 BrandView brandView = new BrandView(null); //It must be null since we are going to add it.
@@ -85,6 +132,7 @@ public class AdminView extends Layout {
              }
 
         });
+        this.tbl_brand.setComponentPopupMenu(brandMenu);
 
 
     }

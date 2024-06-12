@@ -126,7 +126,7 @@ public class ModelDao {
         model.setGear(Model.Gear.valueOf(rs.getString("model_gear")));
         model.setType(Model.Type.valueOf(rs.getString("model_type")));
         model.setYear(rs.getString("model_year"));
-        model.setBrand(this.brandDao.getById(rs.getInt("model_brand_id")));
+        model.setBrand(this.brandDao.getById(rs.getInt("model_brand_id"))); //
         model.setBrand_id(rs.getInt("model_brand_id"));
         return model;
     }

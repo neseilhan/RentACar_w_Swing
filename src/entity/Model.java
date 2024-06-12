@@ -5,8 +5,8 @@ public class Model {
     private int id;
     private int brand_id;
     private String name;
-    private Type type;
     private String year;
+    private Type type;
     private Fuel fuel;
     private Gear gear;
     private Brand brand;

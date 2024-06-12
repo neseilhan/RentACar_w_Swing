@@ -3,14 +3,17 @@ package business;
 import core.Helper;
 import dao.BrandDao;
 import entity.Brand;
+import entity.Model;
 
 import java.util.ArrayList;
 
 public class BrandManager {
     private final BrandDao brandDao;
+    private final ModelManager modelManager;
 
     public BrandManager(){
         this.brandDao = new BrandDao();
+        this.modelManager = new ModelManager();
     }
     public ArrayList<Object[]> getForTable(int size){
         ArrayList<Object[]> brandRowList = new ArrayList<>(); //Creating as many objects as the number of columns.
@@ -46,6 +49,9 @@ public class BrandManager {
         if(this.getById(id) == null){
             Helper.showMsg(id +"ID kayitli marka bulunamadi.");
             return false;
+        }
+        for(Model model : this.modelManager.getByListBrandId(id)){
+            this.modelManager.delete(model.getId());
         }
         return this.brandDao.delete(id);
     }
