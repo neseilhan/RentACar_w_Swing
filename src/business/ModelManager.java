@@ -59,7 +59,7 @@ public class ModelManager {
 
     public ArrayList<Model> searchForTable(int brandId , Model.Fuel fuel , Model.Gear gear, Model.Type type){
         String select = "SELECT * FROM public.model";
-        ArrayList<String> whereList = new ArrayList<>();
+        ArrayList<String> whereList = new ArrayList<>(); //List of expressions that should be written with "where".
 
         if (brandId != 0){
             whereList.add("model_brand_id = " + brandId);
@@ -74,12 +74,11 @@ public class ModelManager {
             whereList.add("model_type ='" + type.toString() + "'");
         }
 
-        String whereStr = String.join(" AND ", whereList);
+        String whereStr = String.join(" AND ", whereList); //To combine expressions within the array.
         String query = select;
         if (whereStr.length() > 0){
             query = query + " WHERE " + whereStr;
         }
-
         return this.modelDao.selectByQuery(query);
 
     }
