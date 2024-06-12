@@ -1,6 +1,8 @@
 package entity;
 
 
+import core.ComboItem;
+
 public class Model {
     private int id;
     private int brand_id;
@@ -88,8 +90,9 @@ public class Model {
         return brand;
     }
 
-    public void setBrand(Brand brand) {
-        this.brand = brand;
+    public void setBrand(Brand brand ) {this.brand = brand;}
+    public ComboItem getComboItem(){  // To see other features of the car when the model is selected.
+        return new ComboItem(this.getId(), this.getBrand().getName() + " - " + this.getName() + " - " + this.getYear() + " - " + this.getGear());
     }
     @Override
     public String toString() {
