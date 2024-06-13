@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="Cars listed on tab menu.">
-      <change afterPath="$PROJECT_DIR$/src/business/BookManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/BookDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/BookingView.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/BookingView.java" afterDir="false" />
+    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="BookingTab and reservation page created.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/business/CarManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/business/CarManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CarView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CarView.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,20 +45,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/RentACar/postgresql-42.7.3.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/IdeaProjects/RentACar/postgresql-42.7.3.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editing.templates"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\RentACar" />
@@ -213,8 +207,27 @@
       <option name="project" value="LOCAL" />
       <updated>1718220672960</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="BookingTab and reservation page created.">
+      <option name="closed" value="true" />
+      <created>1718300225866</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1718300225866</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="DB class created and db connected via App class." />
@@ -232,6 +245,7 @@
     <MESSAGE value="model add,update and delete operations done." />
     <MESSAGE value="model filtering UI added." />
     <MESSAGE value="Cars listed on tab menu." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cars listed on tab menu." />
+    <MESSAGE value="BookingTab and reservation page created." />
+    <option name="LAST_COMMIT_MESSAGE" value="BookingTab and reservation page created." />
   </component>
 </project>
