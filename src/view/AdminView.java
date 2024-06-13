@@ -1,5 +1,6 @@
 package view;
 
+import business.BookManager;
 import business.BrandManager;
 import business.CarManager;
 import business.ModelManager;
@@ -9,8 +10,10 @@ import entity.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class AdminView extends Layout {
@@ -35,15 +38,29 @@ public class AdminView extends Layout {
     private JScrollPane scrl_car;
     private JTable tbl_car;
     private JPanel pnl_car;
+    private JPanel pnl_booking;
+    private JScrollPane scrl_booking;
+    private JPanel pnl_booking_search;
+    private JTable tbl_booking;
+    private JFormattedTextField fld_start_date;
+    private JFormattedTextField fld_fnsh_date;
+    private JButton btn_booking_search;
+    private JComboBox cmb_booking_gear;
+    private JComboBox cmb_booking_fuel;
+    private JComboBox cmb_booking_type;
+    private JButton btn_booking_clear;
     private DefaultTableModel tmdl_brand = new DefaultTableModel();
     private DefaultTableModel tmdl_model = new DefaultTableModel();
     private DefaultTableModel tmdl_car = new DefaultTableModel();
+    private DefaultTableModel tmdl_booking = new DefaultTableModel();
     private BrandManager brandManager;
     private ModelManager modelManager;
     private CarManager carManager;
+    private BookManager bookManager;
     private JPopupMenu brandMenu;
     private JPopupMenu model_menu;
     private JPopupMenu car_menu;
+    private JPopupMenu booking_menu;
     private Object[] col_model;
     private Object[] col_car ;
 
@@ -52,8 +69,9 @@ public class AdminView extends Layout {
         this.modelManager = new ModelManager();
         this.brandManager = new BrandManager();
         this.carManager = new CarManager();
+        this.bookManager = new BookManager();
         this.add(container);
-        this.guiInitialize(800, 500);
+        this.guiInitialize(1000, 500);
         this.user = user;
         if (this.user == null) {
             dispose();
@@ -71,11 +89,70 @@ public class AdminView extends Layout {
 
         //Car Tab Menu
         loadCarTable();
-        loadCarCompenent();
+        loadCarComponent();
+
+        //Booking Tab Menu
+        loadBookingFilter();
+        loadBookingTable(null);
+        loadBookingComponent();
 
 
     }
-    private void loadCarCompenent(){
+
+    public void loadBookingComponent(){
+        tableRowSelect(this.tbl_booking);
+        this.booking_menu = new JPopupMenu();
+        this.booking_menu.add("Rezervasyon Yap").addActionListener(e -> {
+            int selectCarId = this.getTableSelectedRow(this.tbl_booking,0); //Selected Car ID.
+            BookingView bookingView = new BookingView(
+                    this.carManager.getById(selectCarId),
+                    this.fld_start_date.getText(),
+                    this.fld_fnsh_date.getText()
+            );
+            bookingView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadBookingTable(null);
+                    loadBookingFilter();
+                }
+            });
+
+        });
+        this.tbl_booking.setComponentPopupMenu(booking_menu);
+//        tableRowSelected(this.tbl_booking,booking_menu);
+
+        btn_booking_search.addActionListener(e -> {
+            ArrayList<Car> carList = this.carManager.searchForBooking(
+                    fld_start_date.getText(), //This place should be sorted by searchForBooking method.
+                    fld_fnsh_date.getText(),
+                    (Model.Type) cmb_booking_type.getSelectedItem(),
+                    (Model.Fuel) cmb_booking_fuel.getSelectedItem(),
+                    (Model.Gear) cmb_booking_gear.getSelectedItem()
+
+            );
+            ArrayList<Object[]> carBookingRow = this.carManager.getForTable(this.col_car.length, carList);
+            loadBookingTable(carBookingRow);
+        });
+        btn_booking_clear.addActionListener(e -> {
+            loadBookingFilter();
+        });
+    }
+
+    public void loadBookingTable(ArrayList<Object[]> carList) {
+        Object[] col_booking_list = {"ID", "Marka", "Model", "Plaka", "Renk", "KM", "Yıl", "Tip", "Yakıt Türü", "Vites"};
+        createTable(this.tmdl_booking, this.tbl_booking, col_booking_list, carList);
+    }
+
+    public void loadBookingFilter() {
+        this.cmb_booking_type.setModel(new DefaultComboBoxModel<>(Model.Type.values()));
+        this.cmb_booking_type.setSelectedItem(null);
+        this.cmb_booking_fuel.setModel(new DefaultComboBoxModel<>(Model.Fuel.values()));
+        this.cmb_booking_fuel.setSelectedItem(null);
+        this.cmb_booking_gear.setModel(new DefaultComboBoxModel<>(Model.Gear.values()));
+        this.cmb_booking_gear.setSelectedItem(null);
+    }
+
+    private void loadCarComponent(){
         this.car_menu = new JPopupMenu();
         this.car_menu.add("Yeni").addActionListener(e -> {
             CarView carView = new CarView(new Car());
@@ -110,13 +187,14 @@ public class AdminView extends Layout {
         });
 
         this.tbl_model.setComponentPopupMenu(car_menu);
-
     }
+
     public void loadCarTable() {
         col_car = new Object[]{"ID", "Marka", "Model", "Plaka", "Renk", "KM", "Yıl","Tip", "Yakıt Türü", "Vites"};
         ArrayList<Object[]> carList = this.carManager.getForTable(col_car.length, this.carManager.findAll());
         createTable(this.tmdl_car, this.tbl_car, col_car, carList);
     }
+
     public void loadModelComponent(){
         tableRowSelect(this.tbl_model);
         this.model_menu = new JPopupMenu();
@@ -171,6 +249,7 @@ public class AdminView extends Layout {
                     (Model.Type) cmb_s_model_type.getSelectedItem()
             );
             ArrayList<Object[]> modelRowListBySearch = this.modelManager.getForTable(this.col_model.length,modelListBySearch);
+            //Converting ArrayList with a model into objects with getForTable.
             loadModelTable(modelRowListBySearch);
         });
         this.btn_clear_model.addActionListener(e -> {
@@ -180,9 +259,8 @@ public class AdminView extends Layout {
             this.cmb_s_model_brand.setSelectedItem(null);
             loadModelTable(null);
         });
-
-
     }
+
     public void loadModelTable(ArrayList<Object[]> modelList){
         this.col_model = new Object[]{"Model ID", "Marka", "Model Adi", "Tip", "Yil", "Yakit Turu", "Vites"};
         if(modelList == null){
@@ -191,6 +269,7 @@ public class AdminView extends Layout {
 
         createTable(this.tmdl_model, this.tbl_model, col_model, modelList);
     }
+
     public void loadModelFilter() {
         this.cmb_s_model_type.setModel(new DefaultComboBoxModel<>(Model.Type.values()));
         this.cmb_s_model_type.setSelectedItem(null);
@@ -208,6 +287,7 @@ public class AdminView extends Layout {
         }
         this.cmb_s_model_brand.setSelectedItem(null);
     }
+
     public void loadBrandComponent(){
             tableRowSelect(this.tbl_brand);
             this.brandMenu = new JPopupMenu();
@@ -247,18 +327,22 @@ public class AdminView extends Layout {
                  else{
                      Helper.showMsg("error");
                  }
-
              }
-
         });
         this.tbl_brand.setComponentPopupMenu(brandMenu);
-
-
     }
+
     public void loadBrandTable(){
         String[] col_brand = {"Marka ID", "Marka Adi"}; //columns created.
         ArrayList<Object[]> brandList = this.brandManager.getForTable(col_brand.length);
 //        tmdl_brand.setColumnIdentifiers(col_brand); //columns identified.
         this.createTable(this.tmdl_brand, this.tbl_brand, col_brand,brandList);
+    }
+
+    private void createUIComponents() throws ParseException{
+        this.fld_start_date = new JFormattedTextField(new MaskFormatter("##/##/####"));
+        this.fld_start_date.setText("10/10/2023"); //Default date
+        this.fld_fnsh_date = new JFormattedTextField(new MaskFormatter("##/##/####"));
+        this.fld_fnsh_date.setText("16/10/2023");
     }
 }

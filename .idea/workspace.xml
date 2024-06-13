@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="model filtering UI added.">
-      <change afterPath="$PROJECT_DIR$/src/business/CarManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/CarDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/CarView.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/CarView.java" afterDir="false" />
+    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="Cars listed on tab menu.">
+      <change afterPath="$PROJECT_DIR$/src/business/BookManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/BookDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/BookingView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/BookingView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/business/CarManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/business/CarManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
     </list>
@@ -205,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718208377023</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Cars listed on tab menu.">
+      <option name="closed" value="true" />
+      <created>1718220672960</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1718220672960</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -223,6 +231,7 @@
     <MESSAGE value="comments edited." />
     <MESSAGE value="model add,update and delete operations done." />
     <MESSAGE value="model filtering UI added." />
-    <option name="LAST_COMMIT_MESSAGE" value="model filtering UI added." />
+    <MESSAGE value="Cars listed on tab menu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cars listed on tab menu." />
   </component>
 </project>
