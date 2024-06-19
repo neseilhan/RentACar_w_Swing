@@ -11,6 +11,8 @@ import entity.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.ParseException;
@@ -52,6 +54,11 @@ public class AdminView extends Layout {
 //    private JComboBox cmb_booking_fuel;
 //    private JComboBox cmb_booking_type;
     private JButton btn_booking_clear;
+    private JTable tbl_book;
+    private JButton btn_book_clear;
+    private JButton btn_book_search;
+    private JComboBox cmb_s_book_car;
+    private JScrollPane scrl_book;
     private DefaultTableModel tmdl_brand = new DefaultTableModel();
     private DefaultTableModel tmdl_model = new DefaultTableModel();
     private DefaultTableModel tmdl_car = new DefaultTableModel();
@@ -81,6 +88,8 @@ public class AdminView extends Layout {
         }
         this.lbl_welcome.setText("Hosgeldiniz " + this.user.getUsername());
 
+        //General Code
+        loadComponent();
         //Brand Tab Menu
         loadBrandTable();
         loadBrandComponent();
@@ -99,7 +108,16 @@ public class AdminView extends Layout {
         loadBookingTable(null);
         loadBookingComponent();
 
+    }
 
+    private void loadComponent() {
+        this.btn_logout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                LoginView  loginView = new LoginView();
+            }
+        });
     }
 
     public void loadBookingComponent(){
