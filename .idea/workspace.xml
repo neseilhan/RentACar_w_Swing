@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="logOut button is working now.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/business/BookManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/business/BookManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Layout.java" afterDir="false" />
-    </list>
+    <list default="true" id="263b5a82-27f6-45f3-aa76-00e168382032" name="Changes" comment="book tab menu and reservation canceling added." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -234,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718830213575</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="book tab menu and reservation canceling added.">
+      <option name="closed" value="true" />
+      <created>1718912514950</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1718912514950</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,6 +268,7 @@
     <MESSAGE value="BookingTab and reservation page created." />
     <MESSAGE value="bug fix" />
     <MESSAGE value="logOut button is working now." />
-    <option name="LAST_COMMIT_MESSAGE" value="logOut button is working now." />
+    <MESSAGE value="book tab menu and reservation canceling added." />
+    <option name="LAST_COMMIT_MESSAGE" value="book tab menu and reservation canceling added." />
   </component>
 </project>
