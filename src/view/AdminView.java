@@ -11,10 +11,7 @@ import entity.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 
@@ -59,20 +56,25 @@ public class AdminView extends Layout {
     private JButton btn_book_search;
     private JComboBox cmb_s_book_car;
     private JScrollPane scrl_book;
+    private JPanel pnl_book;
     private DefaultTableModel tmdl_brand = new DefaultTableModel();
     private DefaultTableModel tmdl_model = new DefaultTableModel();
     private DefaultTableModel tmdl_car = new DefaultTableModel();
     private DefaultTableModel tmdl_booking = new DefaultTableModel();
+    private DefaultTableModel tmdl_book = new DefaultTableModel();
     private BrandManager brandManager;
     private ModelManager modelManager;
     private CarManager carManager;
     private BookManager bookManager;
-    private JPopupMenu brandMenu;
-    private JPopupMenu modelMenu;
-    private JPopupMenu carMenu;
+    private JPopupMenu brand_menu;
+    private JPopupMenu model_menu;
+    private JPopupMenu car_menu;
     private JPopupMenu booking_menu;
+    private JPopupMenu book_menu;
     private Object[] col_model;
     private Object[] col_car ;
+    private Object[] col_book;
+
 
     public AdminView(User user) {
 
@@ -107,7 +109,62 @@ public class AdminView extends Layout {
         loadBookingFilter();
         loadBookingTable(null);
         loadBookingComponent();
+        
+        //Book Tab Menu
+        loadBookTable(null);
+        loadBookComponent();
+        loadBookFilterCar();
 
+    }
+
+    public void loadBookFilterCar(){
+        this.cmb_s_book_car.removeAllItems();
+        for (Car obj : this.carManager.findAll()){
+            this.cmb_s_book_car.addItem(new ComboItem(obj.getId(),obj.getPlate()));
+        }
+        this.cmb_s_book_car.setSelectedItem(null);
+    }
+    public void loadBookComponent() {
+        this.book_menu = new JPopupMenu();
+        this.book_menu.add("Rezervasyon İptal").addActionListener(e -> {
+            if (Helper.confirm("sure")) {
+                int selectBookId = this.getTableSelectedRow(this.tbl_book, 0);
+                    if (this.bookManager.delete(selectBookId)) {
+                        Helper.showMsg("done");
+                        loadBookTable(null);
+                    } else {
+                        Helper.showMsg("error");
+                    }
+            }
+        });
+       this.book_menu.setComponentPopupMenu(book_menu);
+        tableRowSelect(this.tbl_book, book_menu);
+
+
+        btn_book_search.addActionListener(e -> {
+            ComboItem selectedCar = (ComboItem) this.cmb_s_book_car.getSelectedItem();
+            int carId = 0;
+            if (selectedCar != null) {
+                carId = selectedCar.getKey();
+            }
+
+            ArrayList<Book> bookListBySearch = this.bookManager.searchForTable(carId);
+            ArrayList<Object[]> bookRowListBySearch = this.bookManager.getForTable(this.col_book.length, bookListBySearch);
+            loadBookTable(bookRowListBySearch);
+        });
+        this.btn_book_clear.addActionListener(e -> {
+            loadBookFilterCar();
+            loadBookTable(null); //When clear button is pressed, it returns to the initial screen.
+
+        });
+    }
+
+    private void loadBookTable(ArrayList<Object[]> bookList) {
+        col_book = new Object[]{"ID","Plaka","Araç Marka","Araç Model" , "Müşteri" , "Telefon" ,"Mail" , "T.C.","Başlangıç Tarihi","Bitiş tarihi","Fiyat"};
+        if (bookList == null) {
+            bookList = this.bookManager.getForTable(col_book.length,this.bookManager.findAll());
+        }
+        createTable(this.tmdl_book,this.tbl_book,col_book,bookList);
     }
 
     private void loadComponent() {
@@ -121,7 +178,7 @@ public class AdminView extends Layout {
     }
 
     public void loadBookingComponent(){
-        tableRowSelect(this.tbl_booking);
+        tableRowSelect(this.tbl_booking, booking_menu);
         this.booking_menu = new JPopupMenu();
         this.booking_menu.add("Rezervasyon Yap").addActionListener(e -> {
             int selectCarId = this.getTableSelectedRow(this.tbl_booking,0); //Selected Car ID.
@@ -140,7 +197,6 @@ public class AdminView extends Layout {
 
         });
         this.tbl_booking.setComponentPopupMenu(booking_menu);
-//        tableRowSelected(this.tbl_booking,booking_menu);
 
         btn_booking_search.addActionListener(e -> {
             ArrayList<Car> carList = this.carManager.searchForBooking(
@@ -174,8 +230,8 @@ public class AdminView extends Layout {
     }
 
     private void loadCarComponent(){
-        this.carMenu = new JPopupMenu();
-        this.carMenu.add("Yeni").addActionListener(e -> {
+        this.car_menu = new JPopupMenu();
+        this.car_menu.add("Yeni").addActionListener(e -> {
             CarView carView = new CarView(new Car());
             carView.addWindowListener(new WindowAdapter() {
                 @Override
@@ -184,7 +240,7 @@ public class AdminView extends Layout {
                 }
             });
         });
-        this.carMenu.add("Güncelle").addActionListener(e -> {
+        this.car_menu.add("Güncelle").addActionListener(e -> {
             int selectCarId = this.getTableSelectedRow(tbl_car, 0);
             CarView carView = new CarView(this.carManager.getById(selectCarId));
             carView.addWindowListener(new WindowAdapter() {
@@ -194,7 +250,7 @@ public class AdminView extends Layout {
                 }
             });
         });
-        this.carMenu.add("Sil").addActionListener(e -> {
+        this.car_menu.add("Sil").addActionListener(e -> {
             if (Helper.confirm("sure")) {
                 int selectedCarId = this.getTableSelectedRow(tbl_car, 0);
                 if (this.carManager.delete(selectedCarId)) {
@@ -206,7 +262,7 @@ public class AdminView extends Layout {
             }
         });
 
-        this.tbl_car.setComponentPopupMenu(carMenu);
+        this.tbl_car.setComponentPopupMenu(car_menu);
     }
 
     public void loadCarTable() {
@@ -217,8 +273,8 @@ public class AdminView extends Layout {
 
     public void loadModelComponent(){
 //        tableRowSelect(this.tbl_model);
-        this.modelMenu = new JPopupMenu();
-        this.modelMenu.add("Yeni").addActionListener(e ->{
+        this.model_menu = new JPopupMenu();
+        this.model_menu.add("Yeni").addActionListener(e ->{
             ModelView modelView = new ModelView(new Model());
             modelView.addWindowListener(new WindowAdapter() {
                 @Override
@@ -228,7 +284,7 @@ public class AdminView extends Layout {
             });
         });
 
-        this.modelMenu.add("Guncelle").addActionListener(e ->{
+        this.model_menu.add("Guncelle").addActionListener(e ->{
 
             int selectModelId = this.getTableSelectedRow(tbl_model, 0);
             ModelView modelView = new ModelView(this.modelManager.getById(selectModelId));
@@ -241,7 +297,7 @@ public class AdminView extends Layout {
             });
         });
 
-        this.modelMenu.add("Sil").addActionListener(e -> {
+        this.model_menu.add("Sil").addActionListener(e -> {
             if (Helper.confirm("sure")) {
                 int selectedModelId = this.getTableSelectedRow(tbl_model, 0);
                 if (this.modelManager.delete(selectedModelId)) {
@@ -252,7 +308,7 @@ public class AdminView extends Layout {
                 }
             }
         });
-        this.tbl_model.setComponentPopupMenu(modelMenu);
+        this.tbl_model.setComponentPopupMenu(model_menu);
 
 
         this.btn_search_model.addActionListener(e -> {
@@ -309,9 +365,9 @@ public class AdminView extends Layout {
     }
 
     public void loadBrandComponent(){
-            tableRowSelect(this.tbl_brand);
-            this.brandMenu = new JPopupMenu();
-            this.brandMenu.add("Yeni").addActionListener(e ->{
+            tableRowSelect(this.tbl_brand, brand_menu);
+            this.brand_menu = new JPopupMenu();
+            this.brand_menu.add("Yeni").addActionListener(e ->{
                 BrandView brandView = new BrandView(null); //It must be null since we are going to add it.
                 brandView.addWindowListener( new WindowAdapter(){
                     @Override
@@ -319,10 +375,11 @@ public class AdminView extends Layout {
                         loadBrandTable();
                         loadModelTable(null);
                         loadModelFilterBrand();
+                        loadBookTable(null);
                     }
                 });
             });
-            this.brandMenu.add("Guncelle").addActionListener(e ->{
+            this.brand_menu.add("Guncelle").addActionListener(e ->{
                 int selectBrandId = this.getTableSelectedRow(tbl_brand,0);
                 BrandView brandView = new BrandView(this.brandManager.getById(selectBrandId));
                 brandView.addWindowListener( new WindowAdapter(){
@@ -331,10 +388,11 @@ public class AdminView extends Layout {
                     loadBrandTable();
                     loadModelTable(null);
                     loadModelFilterBrand();
+                    loadBookTable(null);
                     }
                 });
             });
-        this.brandMenu.add("Sil").addActionListener(e -> {
+        this.brand_menu.add("Sil").addActionListener(e -> {
              if(Helper.confirm("sure")){
                  int selectBrandId = this.getTableSelectedRow(tbl_brand, 0);
 //                 System.out.println(selectBrandId);
@@ -349,7 +407,7 @@ public class AdminView extends Layout {
                  }
              }
         });
-        this.tbl_brand.setComponentPopupMenu(brandMenu);
+        this.tbl_brand.setComponentPopupMenu(brand_menu);
     }
 
     public void loadBrandTable(){

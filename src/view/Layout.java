@@ -38,13 +38,32 @@ public class Layout extends JFrame {
     public int getTableSelectedRow(JTable table, int index){
         return Integer.parseInt(table.getValueAt(table.getSelectedRow(),index).toString());
     }
-    public void tableRowSelect(JTable table){
-            table.addMouseListener(new MouseAdapter() {
+    public void tableRowSelect(JTable table,JPopupMenu menu){
+        table.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                int selected_row = table.rowAtPoint(e.getPoint());
-                table.setRowSelectionInterval(selected_row,selected_row);
+                int selectedRow = table.rowAtPoint(e.getPoint());
+                table.setRowSelectionInterval(selectedRow, selectedRow);
+                if (SwingUtilities.isRightMouseButton(e)) {
+                    menu.show(table, e.getX(), e.getY());
+                }
             }
         });
     }
+
+    //this method doesn't work on book_menu.
+//    public void tableRowSelect(JTable table){
+//            table.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mousePressed(MouseEvent e) {
+//                int selected_row = table.rowAtPoint(e.getPoint());
+//                table.setRowSelectionInterval(selected_row,selected_row);
+//            }
+//        });
+//        table.addMouseListener((MouseAdapter) mousePressed(e) -> {
+//            int selected_row = table.rowAtPoint(e.getPoint());
+//            table.setRowSelectionInterval(selected_row,selected_row);
+//        });
+//    }
+
 }

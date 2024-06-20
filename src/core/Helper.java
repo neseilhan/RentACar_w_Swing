@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class Helper {
     public static void setTheme() {
+        optionPaneTR();
         for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()){ //added "Nimbus" theme.
             if("Nimbus".equals(info.getName())){
                 try {
